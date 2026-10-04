@@ -1,0 +1,9 @@
+dist-newstyle/
+cabal.project.local
+.stack-work/
+.vscode/
+*~
+
+playground/
+
+*.bak

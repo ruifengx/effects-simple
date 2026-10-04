@@ -1,0 +1,84 @@
+cabal-version: 3.8
+name: effects-simple
+version: 0.1.0.0
+synopsis: Algebraic effects in Haskell based on native delimited continuations.
+description: Please see the README on GitHub at <https://github.com/ruifengx/effects-simple#readme>
+category: Text
+homepage: https://github.com/ruifengx/effects-simple#readme
+bug-reports: https://github.com/ruifengx/effects-simple/issues
+author: Ruifeng Xie
+maintainer: ruifengx@outlook.com
+copyright: 2026 Ruifeng Xie
+license: AGPL-3.0-or-later
+license-files: COPYING.md
+build-type: Simple
+extra-source-files: README.md
+extra-doc-files: CHANGELOG.md
+tested-with:
+  ghc ==9.14.1
+
+source-repository head
+  type: git
+  location: https://github.com/ruifengx/effects-simple
+
+common base
+  default-language: GHC2024
+  default-extensions:
+    BlockArguments
+    CApiFFI
+    DefaultSignatures
+    DeriveAnyClass
+    DerivingVia
+    DuplicateRecordFields
+    FunctionalDependencies
+    NoFieldSelectors
+    NoStarIsType
+    OrPatterns
+    OverloadedRecordDot
+    PatternSynonyms
+    StrictData
+    TypeFamilies
+    ViewPatterns
+
+  ghc-options:
+    -Wall
+    -Wcompat
+    -Widentities
+    -Wmissing-export-lists
+    -Wmissing-home-modules
+    -Wredundant-constraints
+    -Wmissing-deriving-strategies
+
+  build-depends:
+    base ^>=4.22.0.0
+
+common binary
+  ghc-options:
+    -threaded
+    -rtsopts
+    -with-rtsopts=-N
+
+library
+  import: base
+  hs-source-dirs: src
+  -- cabal-gild: discover src
+  exposed-modules:
+  hs-source-dirs: src-internal
+  -- cabal-gild: discover src-internal
+  other-modules:
+
+benchmark effects-simple-bench
+  import: base, binary
+  type: exitcode-stdio-1.0
+  main-is: Bench.hs
+  hs-source-dirs: bench
+  build-depends:
+    effects-simple
+
+test-suite effects-simple-test
+  import: base, binary
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs: test
+  build-depends:
+    effects-simple
