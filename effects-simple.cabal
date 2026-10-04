@@ -69,6 +69,7 @@ library
   -- cabal-gild: discover src-internal
   other-modules:
     Effects.Internal.Continuation
+    Effects.Internal.Erasure
 
   build-depends:
     containers ^>=0.8
