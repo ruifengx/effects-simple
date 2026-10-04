@@ -66,6 +66,10 @@ library
   hs-source-dirs: src-internal
   -- cabal-gild: discover src-internal
   other-modules:
+    Effects.Internal.Continuation
+
+  build-depends:
+    containers ^>=0.8
 
 benchmark effects-simple-bench
   import: base, binary
