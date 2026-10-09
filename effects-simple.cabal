@@ -66,6 +66,7 @@ library
     Data.Dependent.Membership
     Data.Dependent.Vector
     Effects.Monad
+    Effects.State
 
   hs-source-dirs: src-internal
   -- cabal-gild: discover src-internal
