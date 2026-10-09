@@ -64,6 +64,7 @@ library
   -- cabal-gild: discover src
   exposed-modules:
     Data.Dependent.Membership
+    Data.Dependent.Vector
 
   hs-source-dirs: src-internal
   -- cabal-gild: discover src-internal
